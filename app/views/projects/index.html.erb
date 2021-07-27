@@ -1,0 +1,37 @@
+<div class="loader"><i class="fa fa-refresh fa-spin"></i></div>
+<!--================= main start ================-->
+<div id="main">
+    <!--=============== header ===============-->	
+    <%= render 'shared/header'  %>
+    <!--=============== wrapper ===============-->	
+    <div id="wrapper">
+        <div class="content-holder elem scale-bg2 transition3" >
+            <div class="content  mm">
+                <div class="wrapper-inner no-padding full-width-wrap">
+                    <section class="no-padding no-border">
+                        <div class="gallery-items hid-port-info">
+                            <% @portfolios.each.with_index do |portfolio, i|  %>
+                               <div class="gallery-item <%= [4, 9, 16].include?(i) ? "gallery-item-second" : "" %>">
+                                  <div class="grid-item-holder">
+                                      <div class="box-item">
+                                          <a href="portfolio-single.html" class="ajax">
+                                            <span class="overlay"></span> 
+                                            <img src="<%= portfolio.photo_medium %>" alt="">
+                                          </a>
+                                      </div>
+                                      <div class="grid-item ">
+                                          <h3><a href="portfolio-single.html" class="ajax portfolio-link"><%= portfolio.name %></a></h3>
+                                          <span><%= portfolio.introduce %></span>
+                                      </div>
+                                  </div>
+                              </div>
+                            <% end %>
+                        </div>
+                        <!-- end gallery items -->					
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- wrapper end -->
+</div>
