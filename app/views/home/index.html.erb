@@ -17,7 +17,9 @@
                               <div class="overlay"></div>
                               <div class="slide-title-holder">
                                   <div class="slide-title">
-                                      <h3 class="transition">  <a class="ajax transition2" href="portfolio-single.html"><%= portfolio.name %></a>  </h3>
+                                      <h3 class="transition">
+                                          <%= link_to portfolio.name, project_path(portfolio)  %>
+                                      </h3>
                                       <h4><%= portfolio.introduce %></h4>
                                   </div>
                               </div>

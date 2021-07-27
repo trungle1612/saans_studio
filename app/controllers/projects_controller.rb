@@ -5,5 +5,6 @@ class ProjectsController < ApplicationController
 
   def show
     @portfolio = Portfolio.find(params[:id])
+    @p_details = @portfolio.portfolio_details
   end
 end

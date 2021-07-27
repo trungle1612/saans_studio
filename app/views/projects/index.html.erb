@@ -11,13 +11,13 @@
                     <section class="no-padding no-border">
                         <div class="gallery-items hid-port-info">
                             <% @portfolios.each.with_index do |portfolio, i|  %>
-                               <div class="gallery-item <%= [4, 9, 16].include?(i) ? "gallery-item-second" : "" %>">
+                               <div class="gallery-item <%= [4, 11, 17, 25].include?(i) ? "gallery-item-second" : "" %>">
                                   <div class="grid-item-holder">
                                       <div class="box-item">
-                                          <a href="portfolio-single.html" class="ajax">
+                                          <%= link_to project_path(portfolio) do %>
                                             <span class="overlay"></span> 
                                             <img src="<%= portfolio.photo_medium %>" alt="">
-                                          </a>
+                                          <% end  %>
                                       </div>
                                       <div class="grid-item ">
                                           <h3><a href="portfolio-single.html" class="ajax portfolio-link"><%= portfolio.name %></a></h3>
