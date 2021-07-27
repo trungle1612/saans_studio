@@ -16,6 +16,5 @@ test:
 
 production:
   <<: *default
-  database: saans_studio_production
-  username: saans_studio
+  database: susurrus_production
   password: <%= ENV['SAANS_STUDIO_DATABASE_PASSWORD'] %>
