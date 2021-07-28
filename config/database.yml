@@ -20,4 +20,4 @@ production:
   host: 127.0.0.1
   <<: *default
   database: susurrus_production
-  password: <%= ENV['SAANS_STUDIO_DATABASE_PASSWORD'] %>
+  password: <%= ENV['MYSQL_PASSWORD'] %>
