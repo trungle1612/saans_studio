@@ -352,7 +352,7 @@ function initDomik() {
             html: s,
             popup: false,
             icon: {
-                image: "images/marker.png",
+                image: "/marker.png",
                 iconsize: [ 40, 40 ],
                 iconanchor: [ 40, 40 ]
             }
