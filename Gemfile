@@ -21,6 +21,7 @@ gem 'settingslogic'
 gem 'devise'
 gem 'meta-tags'
 gem 'administrate'
+gem 'rollbar'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
