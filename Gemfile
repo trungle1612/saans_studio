@@ -16,6 +16,9 @@ gem "mini_magick"
 gem 'paperclip-imgur'
 gem 'imgur-api'
 gem 'imgurapi', git: 'git://github.com/trungle1612/imgur'
+gem 'figaro'
+gem 'settingslogic'
+gem 'devise'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -26,6 +29,13 @@ group :development do
   gem 'rack-mini-profiler', '~> 2.0'
   gem 'listen', '~> 3.3'
   gem 'spring'
+  gem 'capistrano', require: false
+  gem 'capistrano-bundler', require: false
+  gem 'capistrano-maintenance', require: false
+  gem 'capistrano-passenger', require: false
+  gem 'capistrano-rails', require: false
+  gem 'capistrano-rails-console', require: false
+  gem 'capistrano-rbenv', require: false
 end
 
 group :test do

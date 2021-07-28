@@ -11,7 +11,7 @@
                 <div class="swiper-container" id="horizontal-slider" data-mwc="1" data-mwa="0">
                     <div class="swiper-wrapper">
                         <!--=============== 1 ===============-->	
-                        <%= @portfolios.each do |portfolio|  %>
+                        <% @portfolios.each do |portfolio|  %>
                           <div class="swiper-slide">
                               <div class="bg" style="background-image:url(<%= portfolio.photo.url %>)"></div>
                               <div class="overlay"></div>
