@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_27_083653) do
+ActiveRecord::Schema.define(version: 2021_07_28_170846) do
 
   create_table "abouts", charset: "utf8mb4", collation: "utf8mb4_bin", force: :cascade do |t|
     t.text "content", size: :medium, null: false
@@ -84,6 +84,7 @@ ActiveRecord::Schema.define(version: 2018_10_27_083653) do
     t.string "pdf_content_type"
     t.bigint "pdf_file_size"
     t.datetime "pdf_updated_at"
+    t.string "p_type", default: "housing"
   end
 
   create_table "skills", charset: "latin1", force: :cascade do |t|

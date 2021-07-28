@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
   def index
-    @portfolios = Portfolio.all.order(created_at: :desc)
+    @portfolios = Portfolio.where(visible: true).order(created_at: :desc)
   end
 
   def show

@@ -19,6 +19,7 @@ class PortfolioDashboard < Administrate::BaseDashboard
     architect: Field::String,
     location: Field::String,
     project_year: Field::Number,
+    p_type: Field::Select.with_options(collection: ['housing', 'interior'])
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -41,12 +42,11 @@ class PortfolioDashboard < Administrate::BaseDashboard
     name
     introduce
     visible
-    created_at
-    updated_at
     photo
     architect
     location
     project_year
+    p_type
   ].freeze
 
   # FORM_ATTRIBUTES
@@ -60,6 +60,7 @@ class PortfolioDashboard < Administrate::BaseDashboard
     architect
     location
     project_year
+    p_type
   ].freeze
 
   # COLLECTION_FILTERS
