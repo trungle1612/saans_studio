@@ -6,6 +6,7 @@ default: &default
   username: root
   password:
   socket: /tmp/mysql.sock
+  port: 3306
 
 development:
   <<: *default
@@ -16,6 +17,7 @@ test:
   database: saans_studio_test
 
 production:
+  host: 127.0.0.1
   <<: *default
   database: susurrus_production
   password: <%= ENV['SAANS_STUDIO_DATABASE_PASSWORD'] %>
