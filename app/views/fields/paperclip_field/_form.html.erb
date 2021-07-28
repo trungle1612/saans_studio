@@ -1,0 +1,10 @@
+<div class="field-unit__label">
+  <%= f.label field.attribute %>
+</div>
+
+<div class="field-unit__field">
+  <%= f.file_field field.attribute, accept:'image/*' %>
+  <% unless field.url.match?('missing.png')  %>
+    <%= image_tag field.url, style: 'height:100px;width:auto;' %>
+  <% end  %>
+</div>
