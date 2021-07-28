@@ -19,6 +19,7 @@ gem 'imgurapi', git: 'git://github.com/trungle1612/imgur'
 gem 'figaro'
 gem 'settingslogic'
 gem 'devise'
+gem 'meta-tags'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

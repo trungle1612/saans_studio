@@ -43,6 +43,20 @@
 		url('futurastd-bold.ttf') format('truetype'),
 		url('futurastd-bold.svg#FuturaPT-Book') format('svg');
 }
+
+@font-face {
+	font-family:'UTM-Avo';
+	src: url('UTM-Avo.ttf');
+	src: url('UTM-AvoBold.ttf?#iefix') format('embedded-opentype'),
+		url('UTM-Avo.ttf') format('truetype');
+}
+
+@font-face {
+	font-family:'UTM-Avo-bold';
+	src: url('UTM-AvoBold.ttf');
+	src: url('UTM-AvoBold.ttf?#iefix') format('embedded-opentype'),
+		url('UTM-AvoBold.ttf') format('truetype');
+}
 /*-------------General Style---------------------------------------*/
 html{
 	overflow-x:hidden !important;
@@ -51,7 +65,7 @@ html{
 body{
 	margin: 0;
 	padding: 0;
-	font-family: 'FuturaPT-Book';
+	font-family: 'UTM-Avo';
 	font-weight: 400;
 	font-size: 12px;
 	color: #000;
@@ -351,7 +365,7 @@ section {
     transition: all 200ms linear;
 }
 .content-nav li a span {
-	font-family:'futurastd-bold';
+	font-family:'UTM-Avo-bold';
 	text-transform:uppercase;
 	padding-right:20px;
 	font-size:18px;
@@ -713,7 +727,7 @@ nav li ul a.act-link {
 }
 .slide-title h3 {
 	font-size:40px;
-	font-family:'futurastd-bold';
+	font-family:'UTM-Avo-bold';
 	text-transform:uppercase;
 	letter-spacing:2px;
 	position:relative;
@@ -736,7 +750,7 @@ nav li ul a.act-link {
 	width:100%;
 	text-align:right;
 	color:#fff;
-	font-family:'futurastd-bold';
+	font-family:'UTM-Avo-bold';
 }
 .slide-title h3 a  , .slide-title h4 a{
 	color:#fff;
@@ -777,7 +791,7 @@ nav li ul a.act-link {
 .page-title h2 {
 	float:left;
 	max-width:550px;
-	font-family:'futurastd-bold';
+	font-family:'UTM-Avo-bold';
 	text-transform:uppercase;
 	padding-bottom:20px;
 	font-size:44px;
@@ -791,7 +805,7 @@ nav li ul a.act-link {
 	line-height:26px;
 	font-size:12px;
 	text-align:left;
-	font-family:'futurastd-bold';
+	font-family:'UTM-Avo-bold';
 	text-transform:uppercase;
 	margin-bottom:10px;
 	color:#666;
@@ -832,7 +846,7 @@ article {
 	font-size:28px;
 	position:relative;
 	float:left;
-	font-family:'futurastd-bold';
+	font-family:'UTM-Avo-bold';
 	text-transform:uppercase;
 	padding-bottom:20px;
 }
@@ -1086,7 +1100,7 @@ article {
 	color:#666;
 	font-size:12px;
 	text-transform:uppercase;
-	font-family:'futurastd-bold';
+	font-family:'UTM-Avo-bold';
 	padding-right:10px;
 }
 .show-info {
@@ -1097,7 +1111,7 @@ article {
 	font-size:16px;
 	text-transform:uppercase;
 	letter-spacing:2px;
-	font-family:'futurastd-bold';
+	font-family:'UTM-Avo-bold';
 	color:#fff;
 	width:70px;
 	height:20px;
@@ -1184,7 +1198,7 @@ article {
 	font-weight: 700;
 	position:relative;
 	float:left;
-	font-family:'futurastd-bold';
+	font-family:'UTM-Avo-bold';
 }
 .gallery-filters {
 	float:left;
@@ -1347,7 +1361,7 @@ article {
 	font-weight: 700;
 	position:relative;
 	float:left;
-	font-family:'futurastd-bold';
+	font-family:'UTM-Avo-bold';
 }
 .grid-item span {
 	width:100%;
@@ -1443,13 +1457,13 @@ article {
 .resume-head h3 {
 	float:left;
 	text-align:left;
-	font-family:'futurastd-bold';
+	font-family:'UTM-Avo-bold';
 	font-size: 3.4rem;
 	line-height: 4.4rem;
 }
 .resume-box h5 {
 	text-align:left;
-	font-family:'futurastd-bold';
+	font-family:'UTM-Avo-bold';
 	font-size: 16px;
 	text-transform:uppercase;
 }
@@ -1579,7 +1593,7 @@ footer {
 }
 footer p {
 	text-align:left;
-	font-family:'futurastd-bold';
+	font-family:'UTM-Avo-bold';
 	font-size: 12px;
 	text-transform:uppercase;
 	margin-top:10px;
@@ -1845,7 +1859,7 @@ footer:before {
 	display: block;
 	line-height:30px;
 	font-size:12px;
-	font-family:'futurastd-bold';
+	font-family:'UTM-Avo-bold';
 	text-transform:uppercase;
 	color:#666;
 }
@@ -1873,7 +1887,7 @@ footer:before {
 	float:right;
 	font-size:82px;
 	text-align:right;
-	font-family:'futurastd-bold';
+	font-family:'UTM-Avo-bold';
 	text-transform:uppercase;
 	width:100%;
 }
@@ -1882,7 +1896,7 @@ footer:before {
 	float:left;
 	font-size:32px;
 	text-align:left;
-	font-family:'futurastd-bold';
+	font-family:'UTM-Avo-bold';
 	text-transform:uppercase;
 	width:100%;
 }
@@ -1894,7 +1908,7 @@ footer:before {
 .blog-title   li {
 	float:left;
 	text-align:left;
-	font-family:'futurastd-bold';
+	font-family:'UTM-Avo-bold';
 	text-transform:uppercase;
 	margin-bottom:10px;
 	color:#666;
@@ -1915,7 +1929,7 @@ footer:before {
 .blog-text h3  , .comment-form-holder h3 , .comments-holder h3 , .project-details h3{
 	font-size:16px;
 	text-align:left;
-	font-family:'futurastd-bold';
+	font-family:'UTM-Avo-bold';
 	text-transform:uppercase;
 	margin-bottom:10px;
 }
@@ -2005,7 +2019,7 @@ footer:before {
 	background:#fff;
 }
 .back-link h2 {
-	font-family:'futurastd-bold';
+	font-family:'UTM-Avo-bold';
 	font-size: 5.4rem;
   	line-height: 4.4rem;
 }

@@ -1,10 +1,28 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>SaansStudio</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>SAAN studio</title>
     <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+    <!-- Meta-Tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="language" content="Vietnamese,vn" />
+    <% if action_name == 'show' %>
+      <%= display_meta_tags %>
+    <% else  %>
+      <meta name="title" content="SAAN studio" />
+      <meta name="keywords"
+        content="Hue architect saanstudio thietkenha thietke thiet ke nha xaydunghue xay dung hue kientrucsu kientruc kien truc su" />
+
+      <!-- Facebook -->
+      <meta property="og:url" content="https://saanstudio.com">
+      <meta property="og:title" content="SAAN studio" />
+      <meta property="og:type" content="website" />
+      <meta property="og:image" content="https://i.imgur.com/13dkuz8.png" />
+      <meta property="og:description" content="SAAN studio" />
+    <% end  %>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="keywords" content="SAANstudio">
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
