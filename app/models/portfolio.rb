@@ -13,4 +13,8 @@ class Portfolio < ApplicationRecord
     url = photo.url
     url.gsub('.jpg', 'h.jpg')
   end
+
+  def type
+    %w[houses industrial interior].sample
+  end
 end

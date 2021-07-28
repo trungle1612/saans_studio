@@ -7,11 +7,19 @@
     <div id="wrapper">
         <div class="content-holder elem scale-bg2 transition3" >
             <div class="content  mm">
+               <div class="filter-holder fixed-filter">
+                   <div class="gallery-filters vis-filter">
+                       <a href="#" class="gallery-filter gallery-filter-active"  data-filter="*">All</a>		
+                       <a href="#" class="gallery-filter " data-filter=".houses">Houses</a>
+                       <a href="#" class="gallery-filter" data-filter=".industrial">Industrial</a>
+                       <a href="#" class="gallery-filter" data-filter=".interior">Interior</a>
+                   </div>
+               </div>
                 <div class="wrapper-inner no-padding full-width-wrap">
                     <section class="no-padding no-border">
                         <div class="gallery-items hid-port-info">
                             <% @portfolios.each.with_index do |portfolio, i|  %>
-                               <div class="gallery-item <%= [4, 11, 17, 25].include?(i) ? "gallery-item-second" : "" %>">
+                                <div class="gallery-item <%= portfolio.type %> <%= [4, 11, 17, 25].include?(i) ? "gallery-item-second" : "" %>">
                                   <div class="grid-item-holder">
                                       <div class="box-item">
                                           <%= link_to project_path(portfolio) do %>
