@@ -46,16 +46,16 @@
 
 @font-face {
 	font-family:'UTM-Avo';
-	src: url('UTM-Avo.ttf');
-	src: url('UTM-AvoBold.ttf?#iefix') format('embedded-opentype'),
-		url('UTM-Avo.ttf') format('truetype');
+	src: url(font-path('UTM-Avo.ttf'));
+	src: url(font-path('UTM-AvoBold.ttf?#iefix')) format('embedded-opentype'),
+		url(font-path('UTM-Avo.ttf')) format('truetype');
 }
 
 @font-face {
 	font-family:'UTM-Avo-bold';
-	src: url('UTM-AvoBold.ttf');
-	src: url('UTM-AvoBold.ttf?#iefix') format('embedded-opentype'),
-		url('UTM-AvoBold.ttf') format('truetype');
+	src: url(font-path('UTM-AvoBold.ttf'));
+	src: url(font-path('UTM-AvoBold.ttf?#iefix')) format('embedded-opentype'),
+		url(font-path('UTM-AvoBold.ttf')) format('truetype');
 }
 /*-------------General Style---------------------------------------*/
 html{
