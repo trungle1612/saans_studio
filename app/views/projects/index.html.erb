@@ -28,7 +28,9 @@
                                           <% end  %>
                                       </div>
                                       <div class="grid-item ">
-                                          <h3><a href="portfolio-single.html" class="ajax portfolio-link"><%= portfolio.name %></a></h3>
+                                          <h3>
+                                             <%= link_to portfolio.name, project_path(portfolio)  %>
+                                          </h3>
                                           <span><%= portfolio.introduce %></span>
                                       </div>
                                   </div>
