@@ -8,9 +8,14 @@ class PortfolioDetailDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    portfolio: Field::BelongsTo,
+    portfolio: Field::BelongsTo.with_options(
+      searchable: true,
+      searchable_fields: ['id', 'name'],
+    ),
     id: Field::Number,
-    introduce: Field::Text,
+    introduce: Field::Text.with_options(
+      searchable: true
+    ),
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
     visible: Field::Boolean,
@@ -26,6 +31,7 @@ class PortfolioDetailDashboard < Administrate::BaseDashboard
     portfolio
     id
     introduce
+    photo
     created_at
   ].freeze
 

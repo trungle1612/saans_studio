@@ -32,6 +32,7 @@ class PortfolioDashboard < Administrate::BaseDashboard
     id
     name
     introduce
+    photo
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
