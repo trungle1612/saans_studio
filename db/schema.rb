@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_30_144159) do
+ActiveRecord::Schema.define(version: 2021_07_30_153615) do
 
   create_table "about_photos", charset: "utf8", force: :cascade do |t|
     t.bigint "about_id", null: false
@@ -51,6 +51,17 @@ ActiveRecord::Schema.define(version: 2021_07_30_144159) do
     t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id"
     t.index ["namespace"], name: "index_active_admin_comments_on_namespace"
     t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
+  end
+
+  create_table "friendly_id_slugs", charset: "utf8", force: :cascade do |t|
+    t.string "slug", null: false
+    t.integer "sluggable_id", null: false
+    t.string "sluggable_type", limit: 50
+    t.string "scope"
+    t.datetime "created_at"
+    t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true, length: { slug: 70, scope: 70 }
+    t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", length: { slug: 140 }
+    t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
   end
 
   create_table "photos", charset: "utf8mb4", collation: "utf8mb4_bin", force: :cascade do |t|
@@ -96,6 +107,8 @@ ActiveRecord::Schema.define(version: 2021_07_30_144159) do
     t.bigint "pdf_file_size"
     t.datetime "pdf_updated_at"
     t.string "p_type", default: "housing"
+    t.string "slug"
+    t.index ["slug"], name: "index_portfolios_on_slug", unique: true
   end
 
   create_table "skills", charset: "latin1", force: :cascade do |t|

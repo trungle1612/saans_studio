@@ -4,7 +4,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    @portfolio = Portfolio.find(params[:id])
+    @portfolio = Portfolio.friendly.find(params[:id])
     @p_details = @portfolio.portfolio_details
   end
 end

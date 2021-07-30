@@ -18,7 +18,7 @@
                     <section class="no-padding no-border">
                         <div class="gallery-items hid-port-info">
                             <% @portfolios.each.with_index do |portfolio, i|  %>
-                                <div class="gallery-item <%= portfolio.p_type || 'housing' %> <%= [4, 11, 17, 25].include?(i) ? "gallery-item-second" : "" %>">
+                                <div class="gallery-item <%= portfolio.p_type || 'housing' %> ">
                                   <div class="grid-item-holder">
                                       <div class="box-item">
                                           <%= link_to project_path(portfolio) do %>
