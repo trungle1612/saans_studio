@@ -3,7 +3,7 @@ Rails.application.routes.draw do
       resources :portfolios
       resources :portfolio_details
       resources :abouts
-      resources :users
+      resources :about_photos
 
       root to: "portfolios#index"
     end
