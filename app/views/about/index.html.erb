@@ -16,8 +16,8 @@
                         <!-- page title -->		
                         <div class="container">
                             <div class="page-title no-border">
-                                <h2>We are creative arhitecture  - Design  agency</h2>
-                                <h3><span>......</span></h3>
+                                <h2><%= @about.name %></h2>
+                                <h3><span><%= @about.quote %>span></h3>
                             </div>
                         </div>
                     </section>
@@ -50,8 +50,7 @@
                         <section>
                             <div class="row">
                                 <div class="col-md-8">
-                                    <p>...</p>
-                                    <p>...</p>
+                                    <p><%= @about.introduce %></p>
                                 </div>
                             </div>
                         </section>
@@ -97,7 +96,7 @@
                 <!-- wrapper inner end   -->
                 <!-- parallax column   -->
                 <div class="img-wrap">
-                    <div class="bg" style="background-image: url(<%= asset_path('about_long.jpg')  %>"  data-top-bottom="transform: translateY(300px);" data-bottom-top="transform: translateY(-300px);"></div>
+                    <div class="bg" style="background-image: url(<%= asset_path(@about.photo_medium) %>"  data-top-bottom="transform: translateY(300px);" data-bottom-top="transform: translateY(-300px);"></div>
                 </div>
                 <!-- parallax column end   -->
                 <!--to top    -->

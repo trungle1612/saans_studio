@@ -18,10 +18,7 @@ class AboutDashboard < Administrate::BaseDashboard
     updated_at: Field::DateTime,
     name: Field::String,
     introduce: Field::Text,
-    photo_file_name: Field::String,
-    photo_content_type: Field::String,
-    photo_file_size: Field::Number,
-    photo_updated_at: Field::DateTime,
+    photo: PaperclipField
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -30,46 +27,29 @@ class AboutDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
-    id
-    content
-    address
-    phone
+    name
+    quote
+    introduce
+    photo
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
-    id
-    content
-    address
-    phone
-    email
-    quote
-    created_at
-    updated_at
     name
+    quote
     introduce
-    photo_file_name
-    photo_content_type
-    photo_file_size
-    photo_updated_at
+    photo
   ].freeze
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
-    content
-    address
-    phone
-    email
-    quote
     name
+    quote
     introduce
-    photo_file_name
-    photo_content_type
-    photo_file_size
-    photo_updated_at
+    photo
   ].freeze
 
   # COLLECTION_FILTERS
