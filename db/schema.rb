@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_28_170846) do
+ActiveRecord::Schema.define(version: 2021_07_30_144159) do
+
+  create_table "about_photos", charset: "utf8", force: :cascade do |t|
+    t.bigint "about_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "photo_file_name"
+    t.string "photo_content_type"
+    t.bigint "photo_file_size"
+    t.datetime "photo_updated_at"
+    t.index ["about_id"], name: "index_about_photos_on_about_id"
+  end
 
   create_table "abouts", charset: "utf8mb4", collation: "utf8mb4_bin", force: :cascade do |t|
     t.text "content", size: :medium, null: false
@@ -125,5 +136,6 @@ ActiveRecord::Schema.define(version: 2021_07_28_170846) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "about_photos", "abouts"
   add_foreign_key "portfolio_details", "portfolios"
 end

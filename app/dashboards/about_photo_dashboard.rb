@@ -1,6 +1,6 @@
 require "administrate/base_dashboard"
 
-class AboutDashboard < Administrate::BaseDashboard
+class AboutPhotoDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
   # a hash that describes the type of each of the model's fields.
   #
@@ -8,16 +8,10 @@ class AboutDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
+    about: Field::BelongsTo,
     id: Field::Number,
-    content: Field::Text,
-    address: Field::Text,
-    phone: Field::String,
-    email: Field::String,
-    quote: Field::Text,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
-    name: Field::String,
-    introduce: Field::Text,
     photo: PaperclipField
   }.freeze
 
@@ -27,18 +21,16 @@ class AboutDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
-    name
-    quote
-    introduce
+    about
+    id
     photo
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
-    name
-    quote
-    introduce
+    about
+    id
     photo
   ].freeze
 
@@ -46,9 +38,7 @@ class AboutDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
-    name
-    quote
-    introduce
+    about
     photo
   ].freeze
 
@@ -64,10 +54,10 @@ class AboutDashboard < Administrate::BaseDashboard
   #   }.freeze
   COLLECTION_FILTERS = {}.freeze
 
-  # Overwrite this method to customize how abouts are displayed
+  # Overwrite this method to customize how about photos are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(about)
-  #   "About ##{about.id}"
+  # def display_resource(about_photo)
+  #   "AboutPhoto ##{about_photo.id}"
   # end
 end
