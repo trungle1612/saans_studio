@@ -9,48 +9,58 @@
 
 <url>
   <loc>https://saanstudio.com/</loc>
-  <lastmod>2021-07-30T16:40:24+00:00</lastmod>
+  <lastmod>2021-08-15T02:38:59+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
   <loc>https://saanstudio.com/projects</loc>
-  <lastmod>2021-07-30T16:40:24+00:00</lastmod>
+  <lastmod>2021-08-15T02:38:59+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://saanstudio.com/about</loc>
-  <lastmod>2021-07-30T16:40:24+00:00</lastmod>
+  <lastmod>2021-08-15T02:38:59+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://saanstudio.com/contacts</loc>
-  <lastmod>2021-07-30T16:40:24+00:00</lastmod>
+  <lastmod>2021-08-15T02:38:59+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://saanstudio.com/projects/cm-house</loc>
+  <lastmod>2021-08-15T02:38:59+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://saanstudio.com/projects/n-i-th-t-nha-lien-k-khu-do-th-an-ph-c-tp-quy-nh-n</loc>
+  <lastmod>2021-08-15T02:38:59+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://saanstudio.com/projects/truong-tien</loc>
-  <lastmod>2021-07-30T16:40:24+00:00</lastmod>
+  <lastmod>2021-08-15T02:38:59+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://saanstudio.com/projects/house-5x20</loc>
+  <lastmod>2021-08-15T02:38:59+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://saanstudio.com/projects/facade</loc>
-  <lastmod>2021-07-30T16:40:24+00:00</lastmod>
+  <lastmod>2021-08-15T02:38:59+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://saanstudio.com/projects/g-pallete</loc>
-  <lastmod>2021-07-30T16:40:24+00:00</lastmod>
-  <priority>0.80</priority>
+  <lastmod>2021-08-15T02:38:59+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
 <url>
   <loc>https://saanstudio.com/projects/house-am</loc>
-  <lastmod>2021-07-30T16:40:24+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://saanstudio.com/projects/room-k-h</loc>
-  <lastmod>2021-07-30T16:40:24+00:00</lastmod>
-  <priority>0.80</priority>
+  <lastmod>2021-08-15T02:38:59+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
 
 
