@@ -649,6 +649,7 @@ sizes, pagination, etc.
   position:relative;
 }
 .pagination{
+  display: none;
 	position:absolute;
 	z-index:20;
 	left:20px;
