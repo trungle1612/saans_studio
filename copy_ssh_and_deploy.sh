@@ -26,6 +26,9 @@ fi
 
 echo "📋 Copying SSH keys to container..."
 
+# Create .ssh directory in container first
+docker exec $CONTAINER_NAME mkdir -p /home/app/.ssh
+
 # Copy SSH private key
 docker cp ~/.ssh/id_rsa $CONTAINER_NAME:/home/app/.ssh/id_rsa
 
@@ -39,7 +42,8 @@ fi
 
 echo "🔐 Setting SSH permissions in container..."
 
-# Set proper permissions
+# Set ownership and permissions (run as root to set ownership)
+docker exec --user root $CONTAINER_NAME chown -R app:app /home/app/.ssh
 docker exec $CONTAINER_NAME chmod 700 /home/app/.ssh
 docker exec $CONTAINER_NAME chmod 600 /home/app/.ssh/id_rsa
 docker exec $CONTAINER_NAME chmod 644 /home/app/.ssh/id_rsa.pub

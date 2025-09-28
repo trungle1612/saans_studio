@@ -39,6 +39,10 @@ group :development do
   gem 'capistrano-rails', require: false
   gem 'capistrano-rails-console', require: false
   gem 'capistrano-rbenv', require: false
+  
+  # SSH support for Capistrano
+  gem 'ed25519', '~> 1.2'
+  gem 'bcrypt_pbkdf', '~> 1.0'
 end
 
 group :test do
