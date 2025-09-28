@@ -2,7 +2,7 @@
 lock "~> 3.16.0"
 
 set :application, "susurrus"
-set :repo_url, "git@github.com:trungle1612/saans_studio.git"
+set :repo_url, "https://github.com/trungle1612/saans_studio.git"
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
