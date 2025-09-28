@@ -1,0 +1,109 @@
+# Docker Compose file for Saans Studio Rails application
+
+services:
+  # MySQL database service
+  db:
+    image: mysql:8.0
+    container_name: saans_studio_db
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_PASSWORD:-root1234}
+      MYSQL_DATABASE: ${DATABASE_NAME:-saans_studio_development}
+      MYSQL_USER: ${DATABASE_USERNAME:-root}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-root1234}
+    volumes:
+      # Persistent volume for MySQL data
+      - mysql_data:/var/lib/mysql
+      # Custom MySQL configuration (optional)
+      - ./config/mysql.cnf:/etc/mysql/conf.d/custom.cnf:ro
+    ports:
+      - "3306:3306"
+    networks:
+      - saans_studio_network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p${MYSQL_PASSWORD:-root1234}"]
+      timeout: 20s
+      retries: 10
+
+  # Rails web application service
+  web:
+    build: .
+    container_name: saans_studio_web
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      # Database configuration
+      DATABASE_HOST: db
+      DATABASE_USERNAME: ${DATABASE_USERNAME:-root}
+      DATABASE_PASSWORD: ${MYSQL_PASSWORD:-root1234}
+      DATABASE_NAME: ${DATABASE_NAME:-saans_studio_development}
+      
+      # Rails configuration
+      RAILS_ENV: development
+      RAILS_SERVE_STATIC_FILES: ${RAILS_SERVE_STATIC_FILES:-true}
+      RAILS_LOG_TO_STDOUT: ${RAILS_LOG_TO_STDOUT:-true}
+      
+      # Application secrets
+      SECRET_KEY_BASE: ${SECRET_KEY_BASE}
+      
+      # AWS configuration
+      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
+      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
+      AWS_REGION: ${AWS_REGION}
+      AWS_HOST_NAME: ${AWS_HOST_NAME}
+      S3_BUCKET_NAME: ${S3_BUCKET_NAME}
+      
+      # Email configuration
+      GMAIL_USERNAME: ${GMAIL_USERNAME}
+      GMAIL_PASSWORD: ${GMAIL_PASSWORD}
+      SENDGRID_API_KEY: ${SENDGRID_API_KEY}
+      SENDGRID_USERNAME: ${SENDGRID_USERNAME}
+      SENDGRID_PASSWORD: ${SENDGRID_PASSWORD}
+      
+      # Imgur configuration
+      IMGUR_CLIENT_ID: ${IMGUR_CLIENT_ID}
+      IMGUR_CLIENT_SECRET: ${IMGUR_CLIENT_SECRET}
+      IMGUR_ACCESS_TOKEN: ${IMGUR_ACCESS_TOKEN}
+      IMGUR_REFRESH_TOKEN: ${IMGUR_REFRESH_TOKEN}
+      IMGUR_USE_SSL: ${IMGUR_USE_SSL}
+      
+      # ImgBB configuration
+      IMGBB_API_TOKEN: ${IMGBB_API_TOKEN}
+      
+      # Monitoring
+      NEW_RELIC_LICENSE_KEY: ${NEW_RELIC_LICENSE_KEY}
+      NEW_RELIC_LOG: ${NEW_RELIC_LOG}
+      ROLLBAR_ACCESS_TOKEN: ${ROLLBAR_ACCESS_TOKEN}
+      
+      # Other services
+      QUOTAGUARDSTATIC_URL: ${QUOTAGUARDSTATIC_URL}
+      
+      # Application credentials
+      SAAN_USERNAME: ${SAAN_USERNAME}
+      SAAN_PASSWORD: ${SAAN_PASSWORD}
+      
+      # Locale
+      LANG: ${LANG:-en_US.UTF-8}
+    ports:
+      - "3000:3000"
+    volumes:
+      # Mount the application code for development (optional - remove for production)
+      - .:/app
+      # Mount logs directory
+      - ./log:/app/log
+    networks:
+      - saans_studio_network
+    stdin_open: true
+    tty: true
+
+# Named volumes for data persistence
+volumes:
+  mysql_data:
+    driver: local
+
+# Custom network for service communication
+networks:
+  saans_studio_network:
+    driver: bridge

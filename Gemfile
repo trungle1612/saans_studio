@@ -14,7 +14,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'paperclip'
 gem "mini_magick"
 gem 'paperclip-imgur'
-gem 'imgurapi', git: 'git@github.com:trungle1612/imgur.git', branch: 'master'
+gem 'imgurapi'
 gem 'figaro'
 gem 'settingslogic'
 gem 'devise'
