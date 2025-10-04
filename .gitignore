@@ -40,3 +40,6 @@ yarn-debug.log*
 
 # Ignore environment variables
 .env
+
+# prompt 
+prompt/*

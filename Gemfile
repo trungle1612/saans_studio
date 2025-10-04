@@ -22,6 +22,7 @@ gem 'meta-tags'
 gem 'administrate'
 gem 'rollbar'
 gem 'friendly_id', '~> 5.4.0'
+gem 'httparty'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

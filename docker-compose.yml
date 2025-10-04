@@ -70,7 +70,7 @@ services:
       IMGUR_USE_SSL: ${IMGUR_USE_SSL}
       
       # ImgBB configuration
-      IMGBB_API_TOKEN: ${IMGBB_API_TOKEN}
+      IMGBB_API_KEY: ${IMGBB_API_KEY}
       
       # Monitoring
       NEW_RELIC_LICENSE_KEY: ${NEW_RELIC_LICENSE_KEY}
