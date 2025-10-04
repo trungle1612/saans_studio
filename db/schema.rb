@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_30_153615) do
+ActiveRecord::Schema.define(version: 2025_09_28_220000) do
 
-  create_table "about_photos", charset: "utf8", force: :cascade do |t|
+  create_table "about_photos", charset: "utf8mb4", collation: "utf8mb4_unicode_ci", force: :cascade do |t|
     t.bigint "about_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -23,37 +23,37 @@ ActiveRecord::Schema.define(version: 2021_07_30_153615) do
     t.index ["about_id"], name: "index_about_photos_on_about_id"
   end
 
-  create_table "abouts", charset: "utf8mb4", collation: "utf8mb4_bin", force: :cascade do |t|
-    t.text "content", size: :medium, null: false
-    t.text "address", size: :medium
+  create_table "abouts", charset: "utf8mb4", collation: "utf8mb4_unicode_ci", force: :cascade do |t|
+    t.text "content", null: false
+    t.text "address"
     t.string "phone"
     t.string "email", null: false
-    t.text "quote", size: :medium
+    t.text "quote"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
-    t.text "introduce", size: :medium
+    t.text "introduce"
     t.string "photo_file_name"
     t.string "photo_content_type"
     t.bigint "photo_file_size"
     t.datetime "photo_updated_at"
   end
 
-  create_table "active_admin_comments", charset: "utf8mb4", collation: "utf8mb4_bin", force: :cascade do |t|
+  create_table "active_admin_comments", charset: "utf8mb4", collation: "utf8mb4_unicode_ci", force: :cascade do |t|
     t.string "namespace"
-    t.text "body", size: :medium
+    t.text "body"
     t.string "resource_type"
     t.bigint "resource_id"
     t.string "author_type"
     t.bigint "author_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author"
     t.index ["namespace"], name: "index_active_admin_comments_on_namespace"
-    t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
+    t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource"
   end
 
-  create_table "friendly_id_slugs", charset: "utf8", force: :cascade do |t|
+  create_table "friendly_id_slugs", charset: "utf8mb4", collation: "utf8mb4_unicode_ci", force: :cascade do |t|
     t.string "slug", null: false
     t.integer "sluggable_id", null: false
     t.string "sluggable_type", limit: 50
@@ -64,17 +64,17 @@ ActiveRecord::Schema.define(version: 2021_07_30_153615) do
     t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
   end
 
-  create_table "photos", charset: "utf8mb4", collation: "utf8mb4_bin", force: :cascade do |t|
-    t.text "link", size: :medium, null: false
-    t.text "caption", size: :medium, null: false
+  create_table "photos", charset: "utf8mb4", collation: "utf8mb4_unicode_ci", force: :cascade do |t|
+    t.text "link", null: false
+    t.text "caption", null: false
     t.boolean "visible", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "link_home"
   end
 
-  create_table "portfolio_details", charset: "utf8mb4", collation: "utf8mb4_bin", force: :cascade do |t|
-    t.text "introduce", size: :medium
+  create_table "portfolio_details", charset: "utf8mb4", collation: "utf8mb4_unicode_ci", force: :cascade do |t|
+    t.text "introduce"
     t.bigint "portfolio_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -83,12 +83,15 @@ ActiveRecord::Schema.define(version: 2021_07_30_153615) do
     t.string "photo_content_type"
     t.bigint "photo_file_size"
     t.datetime "photo_updated_at"
+    t.string "photo_origin_url", comment: "Stores data.url from ImgBB API response"
+    t.string "photo_medium_url", comment: "Stores data.medium.url from ImgBB API response"
+    t.string "delete_url", comment: "Stores data.delete_url from ImgBB API response"
     t.index ["portfolio_id"], name: "index_portfolio_details_on_portfolio_id"
   end
 
-  create_table "portfolios", charset: "utf8mb4", collation: "utf8mb4_bin", force: :cascade do |t|
+  create_table "portfolios", charset: "utf8mb4", collation: "utf8mb4_unicode_ci", force: :cascade do |t|
     t.string "name"
-    t.text "introduce", size: :medium
+    t.text "introduce"
     t.boolean "visible"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -108,17 +111,21 @@ ActiveRecord::Schema.define(version: 2021_07_30_153615) do
     t.datetime "pdf_updated_at"
     t.string "p_type", default: "housing"
     t.string "slug"
+    t.text "photo_imgbb"
+    t.string "photo_origin_url", comment: "Stores data.url from ImgBB API response"
+    t.string "photo_medium_url", comment: "Stores data.medium.url from ImgBB API response"
+    t.string "delete_url", comment: "Stores data.delete_url from ImgBB API response"
     t.index ["slug"], name: "index_portfolios_on_slug", unique: true
   end
 
-  create_table "skills", charset: "latin1", force: :cascade do |t|
+  create_table "skills", charset: "utf8mb4", collation: "utf8mb4_unicode_ci", force: :cascade do |t|
     t.string "name", null: false
     t.string "level", default: "0"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "sliders", charset: "utf8mb4", collation: "utf8mb4_bin", force: :cascade do |t|
+  create_table "sliders", charset: "utf8mb4", collation: "utf8mb4_unicode_ci", force: :cascade do |t|
     t.string "caption", default: ""
     t.boolean "visible", default: true
     t.datetime "created_at", null: false
@@ -133,7 +140,7 @@ ActiveRecord::Schema.define(version: 2021_07_30_153615) do
     t.datetime "photo_updated_at"
   end
 
-  create_table "users", charset: "utf8mb4", collation: "utf8mb4_bin", force: :cascade do |t|
+  create_table "users", charset: "utf8mb4", collation: "utf8mb4_unicode_ci", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"

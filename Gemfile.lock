@@ -114,6 +114,7 @@ GEM
     climate_control (0.2.0)
     concurrent-ruby (1.2.0)
     crass (1.0.6)
+    csv (3.3.5)
     datetime_picker_rails (0.0.7)
       momentjs-rails (>= 2.8.1)
     devise (4.8.0)
@@ -136,6 +137,10 @@ GEM
       activerecord (>= 4.0.0)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
+    httparty (0.23.1)
+      csv
+      mini_mime (>= 1.0.0)
+      multi_xml (>= 0.5.2)
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
     imgurapi (3.2.2)
@@ -183,6 +188,7 @@ GEM
     momentjs-rails (2.20.1)
       railties (>= 3.1)
     msgpack (1.4.2)
+    multi_xml (0.6.0)
     mysql2 (0.5.3)
     net-scp (3.0.0)
       net-ssh (>= 2.6.5, < 7.0.0)
@@ -329,6 +335,7 @@ DEPENDENCIES
   ed25519 (~> 1.2)
   figaro
   friendly_id (~> 5.4.0)
+  httparty
   imgurapi
   jbuilder (~> 2.7)
   listen (~> 3.3)
