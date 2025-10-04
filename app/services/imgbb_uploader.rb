@@ -57,7 +57,7 @@ class ImgbbUploader
       
       # Download image from Imgur
       Rails.logger.info "Downloading image from Imgur: #{img_url}"
-      downloaded_file = download_image(img_url)
+      downloaded_file = download_image(img_url, ENV['QUOTAGUARDSTATIC_URL'])
       
       begin
         # Upload to ImgBB
@@ -66,6 +66,7 @@ class ImgbbUploader
         result
       ensure
         # Clean up temporary file
+        Rails.logger.info "Deleting temporary file"
         File.delete(downloaded_file.path) if downloaded_file && File.exist?(downloaded_file.path)
       end
     rescue => e
@@ -95,16 +96,28 @@ class ImgbbUploader
     end
     
     # Download image from URL and return temporary file
-    def download_image(url)
+    def download_image(url, proxy)
       # Create temporary file
       temp_file = Tempfile.new(['imgbb_migration', '.jpg'])
       
       begin
         # Download the image
-        URI.open(url) do |image_data|
-          File.open(temp_file.path, "wb") do |file|
-            # Write the image data to the local file
-            file.write(image_data.read)
+        if proxy
+          Rails.logger.info "Downloading image from URL with proxy"
+          proxy_uri, proxy_user, proxy_password = parse_proxy(proxy)
+          URI.open(url, proxy_http_basic_authentication: [proxy_uri, proxy_user, proxy_password]) do |image_data|
+            File.open(temp_file.path, "wb") do |file|
+              # Write the image data to the local file
+              file.write(image_data.read)
+            end
+          end
+        else
+          Rails.logger.info "Downloading image from URL without proxy"
+          URI.open(url) do |image_data|
+            File.open(temp_file.path, "wb") do |file|
+              # Write the image data to the local file
+              file.write(image_data.read)
+            end
           end
         end
         
@@ -134,6 +147,17 @@ class ImgbbUploader
         error_message = response.parsed_response&.dig('error', 'message') || 'Unknown error'
         raise "ImgBB API error: #{error_message}"
       end
+    end
+
+    def parse_proxy(proxy)
+      return [] if proxy.blank?
+      res = proxy.split('@')
+
+      proxy_uri = "http://#{res[1]}"
+      proxy_user = res[0].split(':')[0]
+      proxy_password = res[0].split(':')[1]
+
+      [proxy_uri, proxy_user, proxy_password]
     end
   end
 end
