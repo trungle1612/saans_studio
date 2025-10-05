@@ -9,15 +9,20 @@ class Portfolio < ApplicationRecord
   validates_presence_of :introduce
   validates :p_type, :inclusion => { in: TYPES }
 
-  has_attached_file :photo, storage: :imgur
-  validates_attachment_content_type :photo, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
+  # ImgBB photo fields
+  validates :photo_origin_url, presence: true, if: -> { photo_medium_url.present? }
+  validates :photo_medium_url, presence: true, if: -> { photo_origin_url.present? }
+  has_attached_file :photo
 
   has_attached_file :pdf
   validates_attachment_content_type :pdf, :content_type => ["application/pdf"]
 
   def photo_medium
-    url = photo.url
-    url.gsub('.jpg', 'h.jpg')
+    photo_medium_url || photo_origin_url
+  end
+
+  def photo_origin
+    photo_origin_url
   end
 
   def types

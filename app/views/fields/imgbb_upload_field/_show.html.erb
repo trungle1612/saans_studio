@@ -1,0 +1,16 @@
+<% if field.has_photo? %>
+  <div class="photo-display">
+    <img src="<%= field.photo_display_url %>" alt="Portfolio photo" style="max-width: 300px; max-height: 300px;">
+    <div class="photo-urls" style="margin-top: 10px;">
+      <p><strong>Origin URL:</strong> <%= field.photo_origin_url %></p>
+      <% if field.photo_medium_url.present? %>
+        <p><strong>Medium URL:</strong> <%= field.photo_medium_url %></p>
+      <% end %>
+      <% if field.delete_url.present? %>
+        <p><strong>Delete URL:</strong> <%= field.delete_url %></p>
+      <% end %>
+    </div>
+  </div>
+<% else %>
+  <p class="no-photo">No photo uploaded</p>
+<% end %>
