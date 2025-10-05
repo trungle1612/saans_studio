@@ -3,11 +3,16 @@ class PortfolioDetail < ApplicationRecord
   validates_presence_of :introduce
   validates_presence_of :portfolio
 
-  has_attached_file :photo, storage: :imgur
-  validates_attachment_content_type :photo, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
+  # ImgBB photo fields
+  validates :photo_origin_url, presence: true, if: -> { photo_medium_url.present? }
+  validates :photo_medium_url, presence: true, if: -> { photo_origin_url.present? }
+  has_attached_file :photo
 
   def photo_medium
-    url = photo.url
-    url.gsub('.jpg', 'h.jpg')
+    photo_medium_url || photo_origin_url
+  end
+
+  def photo_origin
+    photo_origin_url
   end
 end

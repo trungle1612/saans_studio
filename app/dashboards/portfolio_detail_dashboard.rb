@@ -19,7 +19,10 @@ class PortfolioDetailDashboard < Administrate::BaseDashboard
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
     visible: Field::Boolean,
-    photo: PaperclipField,
+    photo: ImgbbUploadField,
+    photo_origin_url: Field::String,
+    photo_medium_url: Field::String,
+    delete_url: Field::String,
   }.freeze
 
   # COLLECTION_ATTRIBUTES
