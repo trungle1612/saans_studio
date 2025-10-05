@@ -1,0 +1,5 @@
+<% if field.has_photo? %>
+  <img src="<%= field.photo_display_url %>" alt="Portfolio photo" style="max-width: 50px; max-height: 50px; object-fit: cover;">
+<% else %>
+  <span class="no-photo">No photo</span>
+<% end %>

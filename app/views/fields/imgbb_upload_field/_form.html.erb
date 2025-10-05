@@ -1,0 +1,19 @@
+<div class="field-unit__label">
+  <%= f.label field.attribute %>
+</div>
+
+<div class="field-unit__field">
+  <% if field.has_photo? %>
+    <div class="current-photo">
+      <p><strong>Current Photo:</strong></p>
+      <img src="<%= field.photo_display_url %>" alt="Current photo" style="max-width: 200px; max-height: 200px; margin: 10px 0;">
+      <p><small>Origin URL: <%= field.photo_origin_url %></small></p>
+      <% if field.photo_medium_url.present? %>
+        <p><small>Medium URL: <%= field.photo_medium_url %></small></p>
+      <% end %>
+    </div>
+  <% end %>
+  
+  <%= f.file_field field.attribute, accept: "image/*" %>
+  <p class="help-text">Upload a new image to replace the current one. Supported formats: JPG, PNG, GIF</p>
+</div>

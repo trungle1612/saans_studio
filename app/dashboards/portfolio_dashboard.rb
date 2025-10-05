@@ -15,7 +15,10 @@ class PortfolioDashboard < Administrate::BaseDashboard
     visible: Field::Boolean,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
-    photo: PaperclipField,
+    photo: ImgbbUploadField,
+    photo_origin_url: Field::String,
+    photo_medium_url: Field::String,
+    delete_url: Field::String,
     architect: Field::String,
     location: Field::String,
     project_year: Field::Number,
@@ -28,11 +31,11 @@ class PortfolioDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
-    portfolio_details
     id
     name
     introduce
     photo
+    portfolio_details
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES

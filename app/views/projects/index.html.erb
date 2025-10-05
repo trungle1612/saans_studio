@@ -23,7 +23,7 @@
                                       <div class="box-item">
                                           <%= link_to project_path(portfolio) do %>
                                             <span class="overlay"></span> 
-                                            <img src="<%= portfolio.photo_medium %>" alt="">
+                                            <img src="<%= portfolio.photo_medium_url.to_s %>" alt="">
                                           <% end  %>
                                       </div>
                                       <div class="grid-item ">

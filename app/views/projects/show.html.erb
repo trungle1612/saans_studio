@@ -6,7 +6,7 @@
   title:    @portfolio.name,
   type:     'website',
   url:      request.original_url,
-  image:    @portfolio.photo.url(size: nil),
+  image:    @portfolio.photo_medium_url.to_s,
   description: @portfolio.introduce
 } %>
 
@@ -40,9 +40,9 @@
                                   <div class="gallery-item houses">
                                       <div class="grid-item-holder">
                                           <div class="box-item">
-                                              <a href="<%= detail.photo.url %>" title="<%= detail.introduce %>">
+                                              <a href="<%= detail.photo_origin_url.to_s %>" title="<%= detail.introduce %>">
                                               <span class="overlay"></span> 
-                                              <img src="<%= detail.photo_medium %>" alt="">
+                                              <img src="<%= detail.photo_medium_url.to_s %>" alt="">
                                               </a>
                                           </div>
                                       </div>
@@ -69,7 +69,7 @@
                 <!-- wrapper inner end   -->
                 <!-- parallax column   -->
                 <div class="img-wrap">
-                    <div class="bg" style="background-image: url(<%= @portfolio.photo_medium %>)"  data-top-bottom="transform: translateY(300px);" data-bottom-top="transform: translateY(-300px);"></div>
+                    <div class="bg" style="background-image: url(<%= @portfolio.photo_origin_url.to_s %>)"  data-top-bottom="transform: translateY(300px);" data-bottom-top="transform: translateY(-300px);"></div>
                 </div>
                 <!-- parallax column end   -->
                 <!--to top    -->
